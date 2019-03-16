@@ -7,8 +7,11 @@
        http://code.alibabatech.com/schema/dubbo
        http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
 
-    <dubbo:application name="consumer"/>
+    <dubbo:application name="provider1"/>
+    <!-- 注册中心的ip地址 -->
     <dubbo:registry address="zookeeper://192.168.1.100:2181"/>
-    <dubbo:annotation package="com.boot.controller"/>
-    <!--<dubbo:reference id="testServiceImpl" interface="com.boot.service.TestService"/>-->
+
+    <bean id="testServiceImpl" class="com.service.TestServiceImpl"/>
+
+    <dubbo:service interface="com.boot.service.TestService" ref="testServiceImpl" version="1.0.0"/>
 </beans>

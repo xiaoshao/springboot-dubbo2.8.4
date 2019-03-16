@@ -1,0 +1,11 @@
+FROM xiaoshao/hw-jdk8
+
+RUN mkdir /opt/app
+
+ADD target/boot-dubbo-provider-1.0-SNAPSHOT.jar /opt/app/app.jar
+
+EXPOSE 8081
+
+
+
+CMD ["bash", "-c", "java -jar /opt/app/app.jar"]
